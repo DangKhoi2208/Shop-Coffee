@@ -1,0 +1,86 @@
+<div class="allcard">
+  @for(item of listitem;track item.id){
+    <div class="card">
+      <div class="picture-card">
+        <img [src]="item.picture"/>
+      </div>
+      <div class="information">
+        <h3 class="name">
+          Name:{{item.name}}
+        </h3>
+        <p class="price">
+          Price:{{item.price}} VNĐ
+        </p>
+        <p class="quanlity">
+          Instock:{{item.inStock}}
+        </p>
+        <p class="des">
+          Des: {{item.des}}
+        </p>
+      </div>
+      <div class="button">
+        <button class="add" (click)="addCart(item)">
+          Add
+        </button>
+        <button class="delete" (click)="deleteItem(item.id)">
+          Delete
+        </button>
+        <button class="edit"(click)="openDialog(item)">
+            Edit
+        </button>
+      </div>
+    </div>
+    }
+</div>
+
+<dialog #formup>
+  <!-- custom-dialog.component.html -->
+  <div class="container">
+    <div class="title">
+      <h3>Form</h3>
+    </div>
+    <form [formGroup]="formupdate">
+      <div style="display: flex; justify-content: space-between; width: 600px;">
+        <div>
+          <div class="username">
+            <h4>Name</h4>
+            <input type="text" placeholder="Name" formControlName="name">
+          </div>
+          <div class="username">
+            <h4>Description</h4>
+            <input type="text" placeholder="Description" formControlName="des">
+          </div>
+          <div class="username">
+            <h4>Price</h4>
+            <input type="text" placeholder="Price" formControlName="price">
+          </div>
+        </div>
+        <div>
+          <div class="username">
+            <h4>Quantity</h4>
+            <input type="text" placeholder="Quantity" formControlName="quantity">
+          </div>
+          <div class="fisrtname">
+            <h4>Quantity in stock</h4>
+            <input type="text" placeholder="Stock" formControlName="inStock">
+          </div>
+          <div class="lastname">
+            <h4>Image</h4>
+            <input type="text" placeholder="Image">
+          </div>
+        </div>
+      </div>
+
+      <div class="btn">
+        <button type="submit" (click)="updateItem()">Done</button>
+        <button (click)="closeDialog()">Cancel</button>
+      </div>
+    </form>
+
+  </div>
+</dialog>
+
+
+
+
+

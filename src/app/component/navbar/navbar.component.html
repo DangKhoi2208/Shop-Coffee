@@ -1,0 +1,139 @@
+<div class="navbar">
+  <div class="logo">
+    <img src="./assets/1.png">
+  </div>
+  <div class="search">
+        <span class ="material-symbols-outlined" id="search">
+        search
+        </span>
+    <input placeholder="Search" >
+
+  </div>
+  <div class="navLinks">
+    <ul>
+      <a>
+        <li>
+          <div class="navLink">
+            <span class="material-symbols-outlined">
+            home
+            </span>
+            <p> Home </p>
+          </div>
+        </li>
+      </a>
+
+      <a>
+        <li>
+          <div class="Cart">
+            <a class="material-symbols-outlined" (click)="OpencardDialog()">
+              add_circle
+              <p> Cart </p>
+          </div>
+        </li>
+      </a>
+
+      <a class="navLink" (click)=" openDialog()">
+        <li>
+        <span class="material-symbols-outlined">
+        inventory_2
+        </span>
+          Product
+        </li>
+      </a>
+      <a class="navLink">
+        <li>
+          <span class="material-symbols-outlined">
+            contact_emergency
+            </span>
+          Account
+        </li>
+      </a>
+    </ul>
+  </div>
+
+
+
+  <div class="burger">
+    <i class="fa fa-bars"></i>
+  </div>
+</div>
+
+
+<dialog #appDialog>
+  <!-- custom-dialog.component.html -->
+  <div class="container">
+    <div class="title">
+      <h3>Form</h3>
+    </div>
+    <form [formGroup]="form">
+      <div style="display: flex; justify-content: space-between; width: 600px;">
+        <div>
+          <div class="username">
+            <h4>Name</h4>
+            <input type="text" placeholder="Name" formControlName="name">
+          </div>
+          <div class="username">
+            <h4>Description</h4>
+            <input type="text" placeholder="Description" formControlName="des">
+          </div>
+          <div class="username">
+            <h4>Price</h4>
+            <input type="text" placeholder="Price" formControlName="price">
+          </div>
+        </div>
+        <div>
+          <div class="username">
+            <h4>Quantity</h4>
+            <input type="text" placeholder="Quantity" formControlName="quantity">
+          </div>
+          <div class="fisrtname">
+            <h4>Quantity in stock</h4>
+            <input type="text" placeholder="Stock" formControlName="inStock">
+          </div>
+          <div class="lastname">
+            <h4>Image</h4>
+            <input type="text" placeholder="Image">
+          </div>
+        </div>
+      </div>
+
+      <div class="btn">
+        <button type="submit" (click)="submit()">Done</button>
+        <button (click)="closeDialog()">Cancel</button>
+      </div>
+    </form>
+
+  </div>
+</dialog>
+
+<dialog #cardDialog>
+  <div class="container">
+    <h3>Cart</h3>
+    @for (item of itemsInCart; track item.id) {
+      <div class="item">
+        <div class="img">
+          <img [src]="item.picture" alt="">
+        </div>
+        <div class="content">
+          <h4 style="color: wheat;">Name: {{item.name}}</h4>
+          <p style="color: wheat; line-height: 20px;">Des: {{item.des}}</p>
+          <p style="color: wheat;">Price: {{item.price}}</p>
+          <p style="color: wheat;">Quantity: {{item.quantity}}</p>
+        </div>
+      </div>
+
+      <h3>Total: {{ item.price * item.quantity }}</h3>
+    }
+
+  <h3 > Total{{payment()}} </h3>
+    <div class="btn">
+      <button>Thanh toán </button>
+      <button (click)="closecardDialog()">Thoát</button>
+    </div>
+
+  </div>
+</dialog>
+
+
+
+
