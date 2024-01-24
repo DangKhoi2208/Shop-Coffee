@@ -22,30 +22,37 @@
         </li>
       </a>
 
+        <a>
+          <li>
+            <div class="navLink">
+            <span class="material-symbols-outlined" (click)="OpencardDialog()">
+              add_circle
+            </span>
+              <p> Cart </p>
+            </div>
+          </li>
+        </a>
+
       <a>
         <li>
-          <div class="Cart">
-            <a class="material-symbols-outlined" (click)="OpencardDialog()">
-              add_circle
-              <p> Cart </p>
+          <div class="navLink"(click)=" openDialog()">
+                    <span class="material-symbols-outlined">
+        inventory_2
+        </span>
+            <p> Product </p>
           </div>
         </li>
       </a>
 
-      <a class="navLink" (click)=" openDialog()">
+
+      <a>
         <li>
-        <span class="material-symbols-outlined">
-        inventory_2
-        </span>
-          Product
-        </li>
-      </a>
-      <a class="navLink">
-        <li>
-          <span class="material-symbols-outlined">
+          <div class="navLink">
+                    <span class="material-symbols-outlined">
             contact_emergency
             </span>
-          Account
+            <p>  Account </p>
+        </div>
         </li>
       </a>
     </ul>
